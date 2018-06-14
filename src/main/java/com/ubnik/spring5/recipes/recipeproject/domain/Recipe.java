@@ -1,9 +1,16 @@
 package com.ubnik.spring5.recipes.recipeproject.domain;
 
+import javax.persistence.*;
+
 /**
  * Created by Joe Corapi on 6/14/2018.
  */
+@Entity
 public class Recipe {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String description;
     private Integer prepTime;
@@ -13,7 +20,17 @@ public class Recipe {
     private String url;
     private String directions;
     private Byte[] image;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Notes note;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;

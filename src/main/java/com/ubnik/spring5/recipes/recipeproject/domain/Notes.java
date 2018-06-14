@@ -1,12 +1,28 @@
 package com.ubnik.spring5.recipes.recipeproject.domain;
 
+import javax.persistence.*;
+
 /**
  * Created by Joe Corapi on 6/14/2018.
  */
+@Entity
 public class Notes {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
     private Recipe recipe;
     private String recipeNotes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Recipe getRecipe() {
         return recipe;
