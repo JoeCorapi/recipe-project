@@ -1,6 +1,6 @@
 package com.ubnik.spring5.recipes.recipeproject.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
@@ -9,10 +9,23 @@ import java.math.BigDecimal;
 @Entity
 public class Ingredient {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String description;
     private BigDecimal amount;
 
+    @ManyToOne
     private Recipe recipe;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;

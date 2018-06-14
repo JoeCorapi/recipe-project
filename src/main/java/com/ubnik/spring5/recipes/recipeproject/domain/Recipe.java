@@ -1,6 +1,7 @@
 package com.ubnik.spring5.recipes.recipeproject.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Joe Corapi on 6/14/2018.
@@ -19,6 +20,9 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
 
     @Lob
     private Byte[] image;
