@@ -4,6 +4,7 @@ import com.ubnik.spring5.recipes.recipeproject.domain.Category;
 import com.ubnik.spring5.recipes.recipeproject.domain.UnitOfMeasure;
 import com.ubnik.spring5.recipes.recipeproject.repositories.CategoryRepository;
 import com.ubnik.spring5.recipes.recipeproject.repositories.UnitOfMeasureRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,6 +19,7 @@ public class IndexController {
     private CategoryRepository categoryRepository;
     private UnitOfMeasureRepository unitOfMeasureRepository;
 
+    @Autowired
     public IndexController(CategoryRepository categoryRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
