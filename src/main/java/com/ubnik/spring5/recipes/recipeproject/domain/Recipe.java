@@ -32,7 +32,7 @@ public class Recipe {
 
     @OneToOne(cascade = CascadeType.ALL)
     @Lob
-    private Notes note;
+    private Notes notes;
 
     @ManyToMany
     @JoinTable(name = "recipe_category",
@@ -128,12 +128,12 @@ public class Recipe {
         this.difficulty = difficulty;
     }
 
-    public Notes getNote() {
-        return note;
+    public Notes getNotes() {
+        return notes;
     }
 
-    public void setNote(Notes note) {
-        this.note = note;
+    public void setNotes(Notes note) {
+        this.notes = note;
     }
 
     public Set<Category> getCategories() {
